@@ -1,0 +1,8 @@
+{
+  "name": "hf-propagation-learning-hub",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Static educational HF propagation visualizer for GitHub Pages",
+  "scripts": { "test": "node --test" }
+}
