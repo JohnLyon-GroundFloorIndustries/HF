@@ -2,6 +2,8 @@
 
 A polished, responsive, browser-only learning lab for High Frequency (HF) skywave propagation. Explore spherical-Earth virtual-hop geometry, MUF/FOT/LUF, sunlight-driven ionization, modeled signal strength and a 160m–10m band matrix. **Works as a static website on GitHub Pages; no server, API token, database or build command required.**
 
+**Live site:** https://johnlyon-groundfloorindustries.github.io/HF/
+
 > **Important:** This is an **educational scenario simulator**, not a live propagation forecast, validated operational planning tool, ionogram-based refractive ray tracer or ITU-R P.533/VOACAP implementation. Its solar values, noise environments and ionosphere coefficients are adjustable assumptions. It does **not** fetch current band openings. Do not use its results for safety-critical communications or legal transmit eligibility.
 
 ## Features
@@ -12,12 +14,12 @@ A polished, responsive, browser-only learning lab for High Frequency (HF) skywav
 - **Link budget:** power, line loss, both antenna gains, ground-interference elevation lobes, receiver noise preset and fine adjustment, SSB/CW/FT8 threshold, detailed dB ledger and signal-to-noise margin.
 - **Band & frequency planner:** 160m through 10m model-compatibility matrix; clickable bands; UTC 24-hour LUF/FOT/MUF curve with Chart.js and a no-CDN canvas fallback.
 - **Comfort:** dark radio-console styling, high-contrast daylight theme, responsive layouts, keyboard-accessible controls, shareable URL parameters and scenario reset.
-- **Tests:** 18+ tests covering hop-angle inverse, great-circle calculations, solar/daylight proxies, FSPL, dBm, Fresnel geometry, absorption and link diagnoses.
+- **Tests:** 18 tests covering hop-angle inverse, great-circle calculations, solar/daylight proxies, FSPL, dBm, Fresnel geometry, absorption and link diagnoses.
 
 ## Repository structure
 
 ```text
-hf-propagation-hub/
+HF/
 ├── index.html                    # Entire single-page application
 ├── css/
 │   └── style.css                 # Polished dark/light responsive design and fallback CSS
@@ -34,33 +36,20 @@ hf-propagation-hub/
 └── README.md
 ```
 
-## Deploy to GitHub Pages
+## Deployment
 
-1. Create a new GitHub repository, for example `hf-propagation-hub`.
-2. Upload **the contents of the `hf-propagation-hub` folder** to the repository root. `index.html` must be in the root (not buried inside a second subdirectory). Commit to `main`.
-3. Go to **Settings → Pages → Build and deployment → Source: Deploy from a branch**.
-4. Set **Branch: `main`**, **Folder: `/ (root)`**; click **Save**.
-5. Open `https://YOUR-USERNAME.github.io/hf-propagation-hub/` after GitHub publishes the site. Refresh with an empty cache if you uploaded a new version.
+The site is published with GitHub Pages from the root of the `main` branch at https://johnlyon-groundfloorindustries.github.io/HF/. A push to `main` updates it within a minute or two. Refresh with an empty cache if an older version still shows.
 
 No npm build or server deployment is needed. All local file paths are relative (`./css/...`, `./js/...`) and work beneath a GitHub Pages repository prefix.
 
-Optional Git command sequence after creating the empty GitHub repo:
-
-```bash
-git init
-git add .
-git commit -m "Launch IONOSCOPE HF lab"
-git branch -M main
-git remote add origin https://github.com/YOUR-USERNAME/hf-propagation-hub.git
-git push -u origin main
-```
+To publish a copy from another repository, put these files in its root with `index.html` at the top level, then set **Settings → Pages → Build and deployment → Source: Deploy from a branch**, **Branch: `main`**, **Folder: `/ (root)`**.
 
 ### Local development
 
 Browsers restrict ES module imports from `file://`. Serve the folder locally rather than double-clicking `index.html`:
 
 ```bash
-cd hf-propagation-hub
+cd HF
 python3 -m http.server 8000
 # open http://localhost:8000
 ```
